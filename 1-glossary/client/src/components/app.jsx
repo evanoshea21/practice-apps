@@ -12,15 +12,15 @@ const App = () => {
   const defaultList = [{term: 'Dog', definition: 'An animal..', _id: 90}, {term: 'Cat', definition: 'A worse animal..', _id: 91}]
   const [list, setList] = React.useState(defaultList);
 
-  // useEffect(()=> { //mounting...
-  //   getAndSetList();
-  // }, []);
+  useEffect(()=> { //mounting...
+    getAndSetList();
+  }, []);
 
-  const getAndSetList = () => {
-    console.log('GET and Set list fired');
-    axios.get('/glossary')
+  const getAndSetList = (endpoint = '') => {
+    var url = endpoint.length == 0 ? '/glossary' : `/glossary/${endpoint}`;
+    console.log('get and Set')
+    axios.get(url)
     .then((response) => {
-      console.log('getting a response in APP GET->', response.data);
       setList(response.data);
     });
   }
@@ -29,7 +29,7 @@ return (
   <div className='app-pane'>
     <div className='left-pane'>
       <Add getAndSetList={getAndSetList}/>
-      <Search/>
+      <Search getAndSetList={getAndSetList}/>
       <List list={list}/>
     </div>
     <div className='right-pane'>

@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 
-const Search = () => {
+const Search = ({getAndSetList}) => {
 
   const get = (term) => {
-    axios.get(`/glossary/${term}`)
+      getAndSetList(term);
   }
 
   return (
@@ -12,6 +12,7 @@ const Search = () => {
      <form onSubmit={(e) => {e.preventDefault(); get(e.target.entry.value)}}>
         <input type='text' name='entry'></input>
         <button type='submit'>Search</button>
+        <button onClick={getAndSetList}>Show All</button>
       </form>
     </div>
   )

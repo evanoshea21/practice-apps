@@ -21,12 +21,19 @@ const getAll = (req, res) => {
   // res.send(Entry.find());
 };
 const getMatch = (req, res) => {
-
+  console.log('req.params', req.params.term);
+  var x = req.params.term;
+  Entry.find({$or: [ {term: {$regex: x, $options: 'i'}}, {definition: {$regex: x, $options: 'i'}} ]})
+  .then((response) => {
+    // console.log('RESPONSe in getMatch', response);
+    res.status(200).send(response);
+  })
 };
 const save = (req,res) => {
-  console.log('Data from saveDB ->', req.body);
-  Entry.create(req.body);
-  res.status(201).end();
+  // console.log('Data from saveDB ->', req.body);
+  Entry.create(req.body)
+  .then(() => res.status(201).end('Data entered...'))
+
 };
 const update = (req, res) => {
 

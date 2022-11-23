@@ -3,10 +3,10 @@ const axios = require('axios');
 const Add = ({getAndSetList}) => {
 
   const postReq = (data) => {
-    console.log('data in ADD post->', data);
+    // console.log('data in ADD post->', data);
     axios.post('/glossary', data)
-    .then(() => {
-      // console.log('getting back to ADD');
+    .then((response) => {
+      console.log('getting back to ADD RESPONSE->', response);
       getAndSetList();
     })
   }
