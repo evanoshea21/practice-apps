@@ -74,3 +74,6 @@ main {
   background-color: rgb(221, 141, 221);
   width: 50%;
 }
+.list-entry {
+  background-color: aquamarine;
+}

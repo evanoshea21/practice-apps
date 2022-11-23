@@ -1,14 +1,36 @@
-const {useState, useEffect} = require('react');
-const React = require('react');
+import {useState, useEffect} from 'react';
+import React from 'react';
+// const {useState, useEffect} = React;
+import Add from './Add.jsx';
+import Search from './Search.jsx';
+import List from './List.jsx';
+import axios from 'axios';
 
 
 
 const App = () => {
+  const defaultList = [{term: 'Dog', definition: 'An animal..', _id: 90}, {term: 'Cat', definition: 'A worse animal..', _id: 91}]
+  const [list, setList] = React.useState(defaultList);
+
+  // useEffect(()=> { //mounting...
+  //   getAndSetList();
+  // }, []);
+
+  const getAndSetList = () => {
+    console.log('GET and Set list fired');
+    axios.get('/glossary')
+    .then((response) => {
+      console.log('getting a response in APP GET->', response.data);
+      setList(response.data);
+    });
+  }
 
 return (
   <div className='app-pane'>
     <div className='left-pane'>
-      LEFT PANE
+      <Add getAndSetList={getAndSetList}/>
+      <Search/>
+      <List list={list}/>
     </div>
     <div className='right-pane'>
       RIGHT PANE
