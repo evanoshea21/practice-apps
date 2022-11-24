@@ -63,7 +63,7 @@ main {
 
 
 .app-pane {
-  background-color: rgb(204, 187, 156);
+  background-color: rgb(235, 231, 220);
   min-height: 800px;
 }
 .panes {
@@ -73,14 +73,15 @@ main {
 .left-pane {
   /* background-color: rgb(134, 134, 175); */
   width: 50%;
+  /* margin-left: 20px; */
 }
 .right-pane {
   /* background-color: rgb(221, 141, 221); */
   width: 50%;
 }
-.list {
+/* .list {
   background-color: beige;
-}
+} */
 .list-entry {
   display: flex;
   justify-content: space-between;
