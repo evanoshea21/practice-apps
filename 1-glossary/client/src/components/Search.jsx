@@ -8,7 +8,7 @@ const Search = ({getAndSetList}) => {
   }
 
   return (
-    <div>
+    <div id='search'>
      <form onSubmit={(e) => {e.preventDefault(); get(e.target.entry.value)}}>
         <input type='text' name='entry'></input>
         <button type='submit'>Search</button>

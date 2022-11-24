@@ -71,7 +71,7 @@ main {
 }
 
 .left-pane {
-  background-color: rgb(134, 134, 175);
+  /* background-color: rgb(134, 134, 175); */
   width: 50%;
 }
 .right-pane {
@@ -84,16 +84,17 @@ main {
 .list-entry {
   display: flex;
   justify-content: space-between;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   margin: 20px;
   font-size: 1.2em;
 }
 .list-entry div{
   padding: 5px;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
-.gray {
+.def {
   color: gray;
+  text-align: center;
 }
 #header {
   text-align: center;
@@ -101,7 +102,30 @@ main {
 }
 
 .btn {
-  background-color: rgb(183, 31, 31);
   color: white;
   height: 30px;
+}
+.btn.delete-btn {
+  background-color: rgba(175, 38, 38, 0.307);
+}
+.btn.update-btn {
+  background-color: rgba(65, 175, 38, 0.461);
+}
+#edit-btn {
+  margin-left: 0px;
+}
+.term-def {
+  width: 65%;
+}
+.term {
+  text-align: center;
+}
+#add {
+  margin: 20px;
+}
+#search {
+  margin: 20px;
+}
+.update-form {
+  margin: 20%;
 }

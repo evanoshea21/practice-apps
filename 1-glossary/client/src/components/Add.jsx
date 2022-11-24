@@ -12,7 +12,7 @@ const Add = ({getAndSetList}) => {
   }
 
   return (
-    <div>
+    <div id='add'>
       <form onSubmit={(e) => {e.preventDefault(); postReq({term: e.target.entryTerm.value, definition: e.target.entryDef.value})}}>
         <input type='text' name='entryTerm' placeholder='term...'></input>
         <input type='text' name='entryDef' placeholder='definition...'></input>

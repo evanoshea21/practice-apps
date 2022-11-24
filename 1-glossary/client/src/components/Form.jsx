@@ -20,13 +20,17 @@ const Form = ({entry, getAndSetList, setFormStyle}) => {
 
   return (
     <div className='update-form'>
-      <div>Edit Term</div>
+      <h1>Edit Term</h1>
       <form onSubmit={e => {e.preventDefault(); setFormStyle({display: 'none'}); putReq(entry._id, e.target.term.value, e.target.def.value)}}>
-        <span>Term: </span>
-        <input type='text' name='term' value={term} onChange={e => {e.preventDefault(); setTerm(e.target.value)}}></input>
-        <span>Definition: </span>
-        <input type='text' name='def' value={definition} onChange={e => {e.preventDefault(); setDefinition(e.target.value)}}></input>
-        <button type='submit'>Update...</button>
+        <div>
+          <span>Term:</span>
+          <input type='text' name='term' value={term} onChange={e => {e.preventDefault(); setTerm(e.target.value)}}></input>
+        </div>
+        <div>
+          <span>Definition: </span>
+          <input type='text' name='def' value={definition} onChange={e => {e.preventDefault(); setDefinition(e.target.value)}}></input>
+        </div>
+        <button id='edit-btn' type='submit'>Edit...</button>
       </form>
     </div>
   )
