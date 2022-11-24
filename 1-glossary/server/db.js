@@ -36,10 +36,11 @@ const save = (req,res) => {
 
 };
 const update = (req, res) => {
+  Entry.updateOne({_id: req.params.id}, {term: req.body.term, definition: req.body.definition})
+  .then(response => res.send());
 
 };
 const deleteEntry = (req,res) => {
-  console.log('getting to DELETE ENTRY with param id->', req.params.id);
   Entry.deleteOne({_id: req.params.id})
   .then((response)=> {
   //  console.log('Finding to DEL by id->\n', response);

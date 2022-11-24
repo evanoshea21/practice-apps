@@ -6,7 +6,7 @@ const Add = ({getAndSetList}) => {
     // console.log('data in ADD post->', data);
     axios.post('/glossary', data)
     .then((response) => {
-      console.log('getting back to ADD RESPONSE->', response);
+      // console.log('getting back to ADD RESPONSE->', response);
       getAndSetList();
     })
   }

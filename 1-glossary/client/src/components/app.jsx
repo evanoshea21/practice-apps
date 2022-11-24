@@ -5,6 +5,7 @@ import Add from './Add.jsx';
 import Search from './Search.jsx';
 import List from './List.jsx';
 import Header from './Header.jsx';
+import Form from './Form.jsx';
 import axios from 'axios';
 
 
@@ -12,6 +13,8 @@ import axios from 'axios';
 const App = () => {
   const defaultList = [{term: 'Dog', definition: 'An animal..', _id: 90}, {term: 'Cat', definition: 'A worse animal..', _id: 91}]
   const [list, setList] = React.useState(defaultList);
+  const [updateEntry, setUpdateEntry] = React.useState({term: '', definition: ''});
+  // const [list, setList] = React.useState(defaultList);
 
   useEffect(()=> { //mounting...
     getAndSetList();
@@ -25,7 +28,6 @@ const App = () => {
 
   const getAndSetList = (endpoint = '') => {
     var url = endpoint.length == 0 ? '/glossary' : `/glossary/${endpoint}`;
-    console.log('get and Set')
     axios.get(url)
     .then((response) => {
       setList(response.data);
@@ -40,10 +42,10 @@ return (
       <div className='left-pane'>
         <Add getAndSetList={getAndSetList}/>
         <Search getAndSetList={getAndSetList}/>
-        <List list={list} delThis={delThis}/>
+        <List list={list} delThis={delThis} setUpdateEntry={setUpdateEntry}/>
       </div>
       <div className='right-pane'>
-        RIGHT PANE
+        <Form entry={updateEntry} getAndSetList={getAndSetList}/>
       </div>
     </div>
 

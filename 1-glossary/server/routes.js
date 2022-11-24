@@ -7,6 +7,6 @@ router.get('/', DButils.getAll);
 router.get('/:term', DButils.getMatch);
 router.post('/', DButils.save);
 router.delete('/:id', DButils.deleteEntry);
-router.put('/:id', DButils.update);
+router.patch('/:id', DButils.update);
 
 module.exports = router;
