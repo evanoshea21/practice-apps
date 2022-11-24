@@ -75,7 +75,7 @@ main {
   width: 50%;
 }
 .right-pane {
-  background-color: rgb(221, 141, 221);
+  /* background-color: rgb(221, 141, 221); */
   width: 50%;
 }
 .list {

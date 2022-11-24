@@ -14,7 +14,7 @@ const App = () => {
   const defaultList = [{term: 'Dog', definition: 'An animal..', _id: 90}, {term: 'Cat', definition: 'A worse animal..', _id: 91}]
   const [list, setList] = React.useState(defaultList);
   const [updateEntry, setUpdateEntry] = React.useState({term: '', definition: ''});
-  // const [list, setList] = React.useState(defaultList);
+  const [formStyle, setFormStyle] = React.useState({display: 'none'});
 
   useEffect(()=> { //mounting...
     getAndSetList();
@@ -42,10 +42,10 @@ return (
       <div className='left-pane'>
         <Add getAndSetList={getAndSetList}/>
         <Search getAndSetList={getAndSetList}/>
-        <List list={list} delThis={delThis} setUpdateEntry={setUpdateEntry}/>
+        <List list={list} setFormStyle={setFormStyle} delThis={delThis} setUpdateEntry={setUpdateEntry}/>
       </div>
-      <div className='right-pane'>
-        <Form entry={updateEntry} getAndSetList={getAndSetList}/>
+      <div style={formStyle} className='right-pane'>
+        <Form entry={updateEntry} setFormStyle={setFormStyle} getAndSetList={getAndSetList}/>
       </div>
     </div>
 
