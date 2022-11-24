@@ -2,11 +2,16 @@
 
 
 
-const ListEntry = ({entry}) => {
+const ListEntry = ({entry, delThis}) => {
+
   return (
     <div className='list-entry'>
-      <div>Term: {entry.term}</div>
-      <div>Definition: {entry.definition}</div>
+      <div className='term-def'>
+        <div><span className='gray'>Term:</span> {entry.term}</div>
+        <div><span className='gray'>Definition:</span> {entry.definition}</div>
+      </div>
+      <button className='btn delete-btn'onClick={() => {delThis(entry._id)}}>Delete</button>
+
     </div>
   )
 }

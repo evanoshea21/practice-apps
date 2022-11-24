@@ -14,6 +14,7 @@
 
 * {
   margin: 0;
+  font-family: 'Varela Round', sans-serif;
 }
 
 html,
@@ -63,7 +64,9 @@ main {
 
 .app-pane {
   background-color: rgb(204, 187, 156);
-  display: flex;
+}
+.panes {
+  display:flex;
 }
 
 .left-pane {
@@ -74,6 +77,30 @@ main {
   background-color: rgb(221, 141, 221);
   width: 50%;
 }
+.list {
+  background-color: beige;
+}
 .list-entry {
+  display: flex;
+  justify-content: space-between;
   background-color: aquamarine;
+  margin: 20px;
+  font-size: 1.2em;
+}
+.list-entry div{
+  padding: 5px;
+  background-color: aqua;
+}
+.gray {
+  color: gray;
+}
+#header {
+  text-align: center;
+  font-size: 4em;
+}
+
+.btn {
+  background-color: rgb(183, 31, 31);
+  color: white;
+  height: 30px;
 }

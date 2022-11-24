@@ -1,11 +1,11 @@
 import ListEntry from './ListEntry.jsx';
 
 
-const List = ({list}) => {
+const List = ({list, delThis}) => {
   return (
-    <div>
+    <div className='list'>
       {list.map((entry) => {
-        return <ListEntry entry={entry} key={entry._id}/>
+        return <ListEntry entry={entry} delThis={delThis} key={entry._id}/>
       })}
     </div>
   )

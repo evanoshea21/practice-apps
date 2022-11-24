@@ -39,6 +39,12 @@ const update = (req, res) => {
 
 };
 const deleteEntry = (req,res) => {
+  console.log('getting to DELETE ENTRY with param id->', req.params.id);
+  Entry.deleteOne({_id: req.params.id})
+  .then((response)=> {
+  //  console.log('Finding to DEL by id->\n', response);
+    res.status(201).send(response);
+  })
 
 };
 
