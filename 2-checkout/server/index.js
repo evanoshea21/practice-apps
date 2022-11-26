@@ -3,11 +3,14 @@ const express = require("express");
 const path = require("path");
 const sessionHandler = require("./middleware/session-handler");
 const logger = require("./middleware/logger");
+const router = require('./routes');
 
 // Establishes connection to the database on server start
 const db = require("./db");
 
 const app = express();
+app.use(express.urlencoded());
+app.use(express.json());
 
 // Adds `req.session_id` based on the incoming cookie value.
 // Generates a new session if one does not exist.
@@ -18,13 +21,14 @@ app.use(logger);
 
 // Serves up all static and generated assets in ../client/dist.
 app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use('/checkout', router);
 
-/**** 
- * 
- * 
+/****
+ *
+ *
  * Other routes here....
  *
- * 
+ *
  */
 
 app.listen(process.env.PORT);
